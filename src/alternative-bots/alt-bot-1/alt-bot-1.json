@@ -1,0 +1,14 @@
+{
+    "name": "suruh ai berpikir",
+    "version": "1.0",
+    "authors": [
+        "Dzaky,Timothy,Rifky"
+    ],
+    "description": "Survive, Distance, Firepower scaling, Perpendicular strafe Bot",
+    "homepage": "",
+    "countryCodes": [
+        "id"
+    ],
+    "platform": ".Net 10.0",
+    "programmingLang": "C# 10.0"
+}
