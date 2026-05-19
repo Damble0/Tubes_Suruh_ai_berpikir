@@ -1,10 +1,10 @@
 {
-    "name": "suruh ai berpikir",
+    "name": "SetOrbit",
     "version": "1.0",
     "authors": [
         "Dzaky,Timothy,Rifky"
     ],
-    "description": "Survive low energy, target profitable score, firepower depends on distance, perpendicular strafe bot",
+    "description": "Memilih target skor tertinggi, ram kill saat musuh lemah sekaligus dekat, menentukan firepower berdasarkan jarak dengan gerakan setengah orbit. ",
     "homepage": "",
     "countryCodes": [
         "id"
