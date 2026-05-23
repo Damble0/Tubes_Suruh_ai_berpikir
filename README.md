@@ -91,7 +91,7 @@ Tubes_Suruh_AI_Berpikir/
 │       ├── alt-bot-2/      # KnapsackBot
 │       └── alt-bot-3/      # GreedyBot
 ├── doc/
-│   └── laporan.pdf   # Laporan lengkap
+│   └── Suruh_AI_Berpikir.pdf   # Laporan lengkap
 └── README.md
 ```
 
