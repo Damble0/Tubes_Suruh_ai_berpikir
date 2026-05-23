@@ -23,7 +23,10 @@ public class SetOrbit : Bot
         RadarColor = Color.FromArgb(0x87, 0xCE, 0xFA); GunColor = Color.White; BulletColor = Color.Cyan;
         AdjustGunForBodyTurn = AdjustRadarForBodyTurn = AdjustRadarForGunTurn = true;
         SetFireAssist(false);
-        (MaxSpeed, MaxTurnRate, MaxGunTurnRate, MaxRadarTurnRate) = (8, 10, 20, 45);
+        MaxSpeed = 8;
+        MaxTurnRate = 10;
+        MaxGunTurnRate = 20;
+        MaxRadarTurnRate = 45;
         while (IsRunning) { RunStrategy(); Go(); }
     }
 
@@ -38,7 +41,7 @@ public class SetOrbit : Bot
         ControlMovement(target);
     }
 
-    //Pemilihan Target Terbaik (Berdasarkan sisa darah, jarak, kecepatan, & umur data)
+    // Memilih target berdasarkan skor tertinggi
     Enemy PickTarget()
     {
         Enemy best = null; double bestScore = double.NegativeInfinity;
@@ -82,12 +85,12 @@ public class SetOrbit : Bot
         double distance = DistanceTo(target.X, target.Y);
         double firePower = GetFirePower(distance, target.Energy);
 
-        // Linear Predictive Aiming
+        // Perkirakan posisi musuh sebelum menembak
         double travelTime = distance / CalcBulletSpeed(firePower);
-        double predictedX = Math.Clamp(target.X + Math.Sin(ToRadians(target.Direction)) * target.Speed * travelTime, 18, ArenaWidth - 18);
-        double predictedY = Math.Clamp(target.Y + Math.Cos(ToRadians(target.Direction)) * target.Speed * travelTime, 18, ArenaHeight - 18);
+        double targetX = Math.Clamp(target.X + Math.Sin(ToRadians(target.Direction)) * target.Speed * travelTime, 18, ArenaWidth - 18);
+        double targetY = Math.Clamp(target.Y + Math.Cos(ToRadians(target.Direction)) * target.Speed * travelTime, 18, ArenaHeight - 18);
 
-        double gunBearing = GunBearingTo(predictedX, predictedY);
+        double gunBearing = GunBearingTo(targetX, targetY);
         GunTurnRate = Math.Clamp(gunBearing, -20, 20);
 
         double aimTolerance = distance < 200 ? 6.0 : (distance < 450 ? 3.5 : 1.5);
@@ -97,7 +100,7 @@ public class SetOrbit : Bot
         }
     }
 
-    //Penentuan Daya Tembak (Mencari damage optimal vs efisiensi energi)
+    // Mengatur power peluru sesuai jarak dan energi
     double GetFirePower(double distance, double targetEnergy)
     {
         if (Energy < LOW_ENERGY) return distance < 220 ? 1.2 : 0.8;
@@ -114,13 +117,13 @@ public class SetOrbit : Bot
         };
     }
 
-    //Pergerakan Orbit Terbaik (Mengevaluasi kandidat posisi berdasarkan jarak musuh, tembok, & sudut lateral)
+    // Pilih arah gerak yang aman sambil menjaga jarak
     void ControlMovement(Enemy target)
     {
         if (target == null) { Patrol(); return; }
         double distance = DistanceTo(target.X, target.Y);
 
-        //Ramming Oportunistik (Serangan tabrak jika musuh sekarat)
+        // Tabrak musuh kalau energinya sudah rendah
         if (TurnNumber - target.LastSeen <= FIRE_MEMORY_TURNS && target.Energy <= 5.5 && distance <= 135 && Energy > 25)
         {
             TurnRate = Math.Clamp(BearingTo(target.X, target.Y), -10, 10);

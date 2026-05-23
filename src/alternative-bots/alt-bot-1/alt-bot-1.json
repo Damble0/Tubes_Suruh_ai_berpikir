@@ -1,10 +1,10 @@
 {
     "name": "suruh ai berpikir",
-    "version": "1.0",
+    "version": "1.1",
     "authors": [
         "Dzaky,Timothy,Rifky"
     ],
-    "description": "Survive low energy, target profitable score, firepower depends on distance, perpendicular strafe bot",
+    "description": "Memilih target terdekat, buat jarak seminimal mungkin dengan target, maksimumkan firepower dan hitchance",
     "homepage": "",
     "countryCodes": [
         "id"
