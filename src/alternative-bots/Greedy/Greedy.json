@@ -1,0 +1,14 @@
+{
+    "name": "suruh ai berpikir-4",
+    "version": "1.0",
+    "authors": [
+        "Dzaky,Timothy,Rifky"
+    ],
+    "description": "selalu menarget musuh dengan skor dan energi tertinggi",
+    "homepage": "",
+    "countryCodes": [
+        "id"
+    ],
+    "platform": ".Net 10.0",
+    "programmingLang": "C# 10.0"
+}

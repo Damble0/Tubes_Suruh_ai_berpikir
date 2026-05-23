@@ -1,0 +1,14 @@
+{
+    "name": "suruh ai berpikir-1",
+    "version": "1.1",
+    "authors": [
+        "Dzaky,Timothy,Rifky"
+    ],
+    "description": "Memilih target terdekat, buat jarak seminimal mungkin dengan target, maksimumkan firepower dan hitchance",
+    "homepage": "",
+    "countryCodes": [
+        "id"
+    ],
+    "platform": ".Net 10.0",
+    "programmingLang": "C# 10.0"
+}
