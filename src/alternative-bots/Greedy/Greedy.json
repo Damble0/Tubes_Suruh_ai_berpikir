@@ -4,7 +4,7 @@
     "authors": [
         "Dzaky,Timothy,Rifky"
     ],
-    "description": "selalu menarget musuh dengan skor dan energi tertinggi",
+    "description": "Memilih target berdasarkan **weighted sum** sederhana: `HeuristicScore = (EnemyEnergy × 1.0) + (EnemyScore × 0.5)`. Memiliki mode agresif otomatis saat energi diri turun di bawah 40, di mana bot selalu menembak dengan daya maksimum",
     "homepage": "",
     "countryCodes": [
         "id"

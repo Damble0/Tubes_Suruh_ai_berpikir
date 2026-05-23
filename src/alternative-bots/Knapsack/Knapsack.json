@@ -4,7 +4,7 @@
     "authors": [
         "Dzaky,Timothy,Rifky"
     ],
-    "description": "Memilih musuh dengan rasio nilai kill terbesar dibanding biaya tembakan. Target yang diprioritaskan adalah musuh yang darahnya rendah, jaraknya dekat, dan bisa dieliminasi dengan penggunaan energi paling efisien",
+    "description": "setiap musuh memiliki Value (keuntungan membunuh) dan Cost (estimasi energi yang dihabiskan). Bot memilih target dengan rasio `Value / Cost` tertinggi. Daya tembak juga dipilih secara knapsack — gunakan daya minimum yang cukup untuk membunuh musuh yang hampir mati.",
     "homepage": "",
     "countryCodes": [
         "id"
